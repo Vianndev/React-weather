@@ -1,5 +1,5 @@
 {
-  "homepage": "https://github.com/Vianndev/React-weather.git",
+  "homepage": "https://vianndev.github.io/React-weather",
   "name": "meteos",
   "version": "0.1.0",
   "private": true,
@@ -20,7 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy":"gh-pages -d build"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
