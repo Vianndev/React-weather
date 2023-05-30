@@ -50,10 +50,10 @@ function TemperatureAndDetails(
             <p className='font-light'>Set: <span className='font-medium ml-1'>{formatToLocalTime(sunset, timezone,'hh:mm a')}</span></p>
             <p className=' font-light'>|</p>
             <UilSun />
-            <p className='font-light'>Haut: <span className='font-medium ml-1'>{`${temp_max.toFixed()}°`}</span></p>
+            <p className='font-light'>High: <span className='font-medium ml-1'>{`${temp_max.toFixed()}°`}</span></p>
             <p className=' font-light'>|</p>
             <UilSun />
-            <p className='font-light'>Bas : <span className='font-medium ml-1'>{`${temp_min.toFixed()}°`}</span></p>
+            <p className='font-light'>Low : <span className='font-medium ml-1'>{`${temp_min.toFixed()}°`}</span></p>
             <p className=' font-light'>|</p>
         </div>
     </div>

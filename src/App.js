@@ -2,16 +2,11 @@ import './index.css'
 import React, { useState, useEffect } from 'react';
 import TopButtons from './components/TopButtons';
 import Inputs from './components/inputs.jsx'
-/* import { searchBox }  from './searchBox.js'; */
-/* import { Forecast } from './Forecast';*/
 import TimeAndLocation from './TimeAndLocation';
 import TemperatureAndDetails from './components/TemperatureAndDetails';
 import Forecast from './components/Forecast';
 import getFormattedWeatherData from './services/WeatherService';
-import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
 
-/* 591a43944e3934b181bbfa196bd63c1f */
 function App() {
   const [query, setQuery] = useState({q:"Lyon"});
   const [units, setUnits] = useState('metric');

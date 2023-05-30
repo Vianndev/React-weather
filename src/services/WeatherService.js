@@ -4,15 +4,34 @@ const BASE_URL = "https://api.openweathermap.org/data/2.5"
 
 //https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
 
-const getWeatherData = (infoType, searchParams) => {
+/*
+class WeatherResult {
+
+    _temp;
+
+    constructor() {
+        this._temp = -5;
+        getWeatherData();
+    }
+
+    get temp () {
+        return this._temp;
+    }
+
+}*/
+
+const getWeatherData = async (infoType, searchParams) => {
     const url = new URL(BASE_URL + "/" + infoType);
 
     url.search = new URLSearchParams ({...searchParams,appid:API_KEY})
     console.log(url)
-    return fetch(url)
-    .then((res) => res.json())
-    .then((data) => data )
-    .catch((err) => console.error(err));
+    let data = null;
+    try {
+        data = (await fetch(url)).json();
+    } catch(err) {
+        console.error(err)
+    }
+    return data;
 }
 const formatCurrentWeather =  (data) => {
     const {
@@ -54,8 +73,7 @@ const formatToLocalTime = (
 
   const getFormattedWeatherData = async (searchParams) => {
 
-       const formattedCurrentWeather = await getWeatherData ('weather',searchParams,{lang:'fr'},{units: "metric"})
-       .then(formatCurrentWeather);
+       const formattedCurrentWeather = formatCurrentWeather(await getWeatherData ('weather',searchParams,{lang:'fr'},{units: "metric"}));
 
        const {lat, lon} = formattedCurrentWeather;
        const formattedForecastWeather = await getWeatherData ('onecall', {lat, lon, exclude:'current,minutely,alerts',lang:'fr',units: "metric"})
