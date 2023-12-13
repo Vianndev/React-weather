@@ -16,6 +16,7 @@ function Inputs({setQuery, units, setUnits}) {
     if (inputCity !== "") {
       setQuery({ q: inputCity });
     console.log("handlesearchclick")}
+    setInputCity("");
   };
 
    const handleLocationClick = () => {
@@ -63,15 +64,13 @@ const onChange = (e) =>{
  var value = e.currentTarget.value ;
  setInputCity (value);
  getCitiesSuggest(value);
-  
 };
 
 
 
 const handleSelectCity = async (cityName ,cityCode ,lon, lat) => {
-  setQuery({ lat : lat ,
-  lon : lon});
-
+  setQuery({ lat : lat , lon : lon});
+  setInputCity("");
 }
 /*
 const handleKeyUp = () => {
